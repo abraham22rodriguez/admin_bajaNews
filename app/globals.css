@@ -1,0 +1,89 @@
+/* Public Sans — interfaz. Pesos usados: 400 (texto), 500 (labels/nav), 600 (botones/títulos), 700 (encabezados). */
+@import "@fontsource/public-sans/400.css";
+@import "@fontsource/public-sans/500.css";
+@import "@fontsource/public-sans/600.css";
+@import "@fontsource/public-sans/700.css";
+
+/* IBM Plex Mono — solo para datos tabulares (IDs, fechas): la alineación monoespaciada
+   ahí cumple una función real (escanear columnas de números), no es decoración. */
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink: #1c1917;
+  --color-ink-soft: #44403c;
+  --color-paper: #fafaf8;
+  --color-paper-raised: #ffffff;
+  --color-line: #e4e1da;
+  --color-line-strong: #cbc7bd;
+  --color-input-border: #78716c;
+
+  --color-brand: #a3202f;
+  --color-brand-dark: #7d1824;
+  --color-brand-tint: #fbebec;
+
+  --color-cta: var(--color-ink);
+  --color-cta-hover: #35302c;
+  --color-focus: var(--color-ink);
+
+  --color-success: #2f6844;
+  --color-success-tint: #e9f3ec;
+  --color-warning: #b45309;
+  --color-warning-tint: #fdf1e2;
+  --color-danger: #b42318;
+  --color-danger-tint: #fdecea;
+
+  --color-sidebar: #000000;
+  --color-sidebar-raised: #262626;
+  --color-sidebar-text: #d6d3ce;
+  --color-sidebar-text-active: #ffffff;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.font-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--color-ink);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.375rem;
+  z-index: 100;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
